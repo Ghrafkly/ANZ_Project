@@ -1,0 +1,8 @@
+### Get all accounts
+GET http://{{host}}/backend/accounts
+
+### Get Transaction by ID
+GET http://{{host}}/backend/transactions?accountNumber={{accountNumber}}
+
+### Get all transactions
+GET http://{{host}}/backend/transactions/all
