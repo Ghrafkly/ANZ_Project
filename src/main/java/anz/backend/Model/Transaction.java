@@ -1,9 +1,11 @@
 package anz.backend.Model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 
+@Data
 @Entity
 @Table
 public class Transaction {
@@ -38,74 +40,6 @@ public class Transaction {
 		this.transactionDebitAmount = transactionDebitAmount;
 		this.transactionCreditAmount = transactionCreditAmount;
 		this.transactionDebitCredit = transactionDebitCredit;
-		this.transactionNarrative = transactionNarrative;
-	}
-
-	public Long getTransactionId() {
-		return transactionId;
-	}
-
-	public Long getAccountNumber() {
-		return accountNumber;
-	}
-
-	public void setAccountNumber(Long accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-
-	public String getAccountName() {
-		return accountName;
-	}
-
-	public void setAccountName(String accountName) {
-		this.accountName = accountName;
-	}
-
-	public LocalDate getTransactionValueDate() {
-		return transactionValueDate;
-	}
-
-	public void setTransactionValueDate(LocalDate transactionValueDate) {
-		this.transactionValueDate = transactionValueDate;
-	}
-
-	public String getAccountCurrency() {
-		return accountCurrency;
-	}
-
-	public void setAccountCurrency(String accountCurrency) {
-		this.accountCurrency = accountCurrency;
-	}
-
-	public Double getTransactionDebitAmount() {
-		return transactionDebitAmount;
-	}
-
-	public void setTransactionDebitAmount(Double transactionDebitAmount) {
-		this.transactionDebitAmount = transactionDebitAmount;
-	}
-
-	public Double getTransactionCreditAmount() {
-		return transactionCreditAmount;
-	}
-
-	public void setTransactionCreditAmount(Double transactionCreditAmount) {
-		this.transactionCreditAmount = transactionCreditAmount;
-	}
-
-	public String getTransactionDebitCredit() {
-		return transactionDebitCredit;
-	}
-
-	public void setTransactionDebitCredit(String transactionDebitCredit) {
-		this.transactionDebitCredit = transactionDebitCredit;
-	}
-
-	public String getTransactionNarrative() {
-		return transactionNarrative;
-	}
-
-	public void setTransactionNarrative(String transactionNarrative) {
 		this.transactionNarrative = transactionNarrative;
 	}
 }
