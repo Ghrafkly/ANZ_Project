@@ -8,6 +8,8 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table
 public class Account {
@@ -18,17 +20,4 @@ public class Account {
 	private LocalDate accountBalanceDate;
 	private String accountCurrency;
 	private Double accountOAB;
-
-	public Account() {
-
-	}
-
-	public Account(Long accountNumber, String accountName, String accountType, LocalDate accountBalanceDate, String accountCurrency, Double accountOAB) {
-		this.accountNumber = accountNumber;
-		this.accountName = accountName;
-		this.accountType = accountType;
-		this.accountBalanceDate = accountBalanceDate;
-		this.accountCurrency = accountCurrency;
-		this.accountOAB = accountOAB;
-	}
 }

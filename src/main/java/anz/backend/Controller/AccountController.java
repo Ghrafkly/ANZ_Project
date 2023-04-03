@@ -1,6 +1,6 @@
 package anz.backend.Controller;
 
-import anz.backend.Model.Account;
+import anz.backend.DTO.AccountDTO;
 import anz.backend.Services.AccountServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +24,7 @@ public class AccountController {
 	 * @return List of accounts
 	 */
 	@GetMapping
-	public List<Account> getAccounts() {
+	public List<AccountDTO> getAccounts() {
 		return accountServices.getAccounts();
 	}
 }

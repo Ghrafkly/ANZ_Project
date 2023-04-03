@@ -1,11 +1,14 @@
 package anz.backend.Services;
 
+import anz.backend.DTO.TransactionDTO;
+import anz.backend.Mapper.TransactionMapper;
 import anz.backend.Model.Transaction;
 import anz.backend.Repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TransactionServices {
@@ -16,11 +19,17 @@ public class TransactionServices {
 		this.transactionRepository = transactionRepository;
 	}
 
-	public List<Transaction> getTransactionsByAccountNumber(Long accountNumber) {
-		return transactionRepository.getTransactionsByAccountNumber(accountNumber);
+	public List<TransactionDTO> getTransactionsByAccountNumber(Long accountNumber) {
+		return transactionRepository.getTransactionsByAccountNumber(accountNumber)
+				.stream()
+				.map(TransactionMapper.INSTANCE::transactionToTransactionDTO)
+				.toList();
 	}
 
-	public List<Transaction> getTransactions() {
-		return transactionRepository.findAll();
+	public List<TransactionDTO> getTransactions() {
+		return transactionRepository.findAll()
+				.stream()
+				.map(TransactionMapper.INSTANCE::transactionToTransactionDTO)
+				.toList();
 	}
 }
