@@ -1,7 +1,7 @@
 ### Get all accounts
 GET http://{{host}}/backend/accounts
 
-### Get Transaction by ID
+### Get Transaction by Account Number
 GET http://{{host}}/backend/transactions?accountNumber={{accountNumber}}
 
 ### Get all transactions
