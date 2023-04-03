@@ -1,32 +1,39 @@
 package anz.backend.Services;
 
 import anz.backend.DTO.TransactionDTO;
+import anz.backend.Exceptions.ApiRequestException;
 import anz.backend.Mapper.TransactionMapper;
-import anz.backend.Model.Transaction;
 import anz.backend.Repository.TransactionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
+@Slf4j
 public class TransactionServices {
 	private final TransactionRepository transactionRepository;
 
-	@Autowired
-	public TransactionServices(TransactionRepository transactionRepository) {
-		this.transactionRepository = transactionRepository;
-	}
-
 	public List<TransactionDTO> getTransactionsByAccountNumber(Long accountNumber) {
-		return transactionRepository.getTransactionsByAccountNumber(accountNumber)
+		log.info("Getting all transactions for account number: " + accountNumber);
+		List<TransactionDTO> transactionDTO = transactionRepository.getTransactionsByAccountNumber(accountNumber)
 				.stream()
 				.map(TransactionMapper.INSTANCE::transactionToTransactionDTO)
 				.toList();
+
+		if (transactionDTO.isEmpty()) {
+			String errorMessage = "No transactions found for account number: " + accountNumber;
+			log.error(errorMessage);
+			throw new ApiRequestException(errorMessage);
+		}
+
+		return transactionDTO;
 	}
 
-	public List<TransactionDTO> getTransactions() {
+	public List<TransactionDTO> getAllTransactions() {
+		log.info("Getting all transactions");
 		return transactionRepository.findAll()
 				.stream()
 				.map(TransactionMapper.INSTANCE::transactionToTransactionDTO)

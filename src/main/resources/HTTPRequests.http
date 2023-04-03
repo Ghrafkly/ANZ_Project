@@ -6,3 +6,9 @@ GET http://{{host}}/backend/transactions?accountNumber={{accountNumber}}
 
 ### Get all transactions
 GET http://{{host}}/backend/transactions/all
+
+### Generate Invalid transactions Http Address
+GET http://{{host}}/backend/transactions/badrequest
+
+### Get transactions from an invalid account
+GET http://{{host}}/backend/transactions?accountNumber=123456789

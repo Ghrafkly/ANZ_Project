@@ -2,24 +2,21 @@ package anz.backend.Services;
 
 import anz.backend.DTO.AccountDTO;
 import anz.backend.Mapper.AccountMapper;
-import anz.backend.Model.Account;
 import anz.backend.Repository.AccountRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
+@Slf4j
 public class AccountServices {
 	private final AccountRepository accountRepository;
 
-	@Autowired
-	public AccountServices(AccountRepository accountRepository) {
-		this.accountRepository = accountRepository;
-	}
-
-	public List<AccountDTO> getAccounts() {
+	public List<AccountDTO> getAllAccounts() {
+		log.info("Getting all accounts");
 		return accountRepository.findAll()
 				.stream()
 				.map(AccountMapper.INSTANCE::accountToAccountDTO)

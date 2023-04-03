@@ -33,6 +33,6 @@ public class TransactionController {
 	 */
 	@GetMapping("/all")
 	public List<TransactionDTO> getAllTransactions() {
-		return transactionServices.getTransactions();
+		return transactionServices.getAllTransactions();
 	}
 }
