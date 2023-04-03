@@ -1,7 +1,7 @@
 package anz.backend.Controller;
 
-import anz.backend.Model.Transaction;
-import anz.backend.Services.TransactionServices;
+import anz.backend.DTO.TransactionDTO;
+import anz.backend.Services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,11 +10,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/transactions")
 public class TransactionController {
-	private final TransactionServices transactionServices;
+	private final TransactionService transactionService;
 
 	@Autowired
-	public TransactionController(TransactionServices transactionServices) {
-		this.transactionServices = transactionServices;
+	public TransactionController(TransactionService transactionService) {
+		this.transactionService = transactionService;
 	}
 
 	/**
@@ -23,8 +23,8 @@ public class TransactionController {
 	 * @return List of transactions for the given account number
 	 */
 	@GetMapping
-	public List<Transaction> getTransactions(@RequestParam Long accountNumber) {
-		return transactionServices.getTransactionsByAccountNumber(accountNumber);
+	public List<TransactionDTO> getTransactions(@RequestParam Long accountNumber) {
+		return transactionService.getTransactionsByAccountNumber(accountNumber);
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class TransactionController {
 	 * @return List of transactions
 	 */
 	@GetMapping("/all")
-	public List<Transaction> getAllTransactions() {
-		return transactionServices.getTransactions();
+	public List<TransactionDTO> getAllTransactions() {
+		return transactionService.getAllTransactions();
 	}
 }

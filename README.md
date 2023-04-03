@@ -1,5 +1,5 @@
 # TO-DO
-1. Create DTOs for all entities
+1. Create DTOs for all entities ✔
    1. Mapping capability i.e. Mapstruct, Orika, ModelMapper
 2. Exception handling using @ControllerAdvice
 3. Tests
