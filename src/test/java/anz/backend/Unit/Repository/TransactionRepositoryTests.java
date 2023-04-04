@@ -1,12 +1,11 @@
-package anz.backend.Repository;
+package anz.backend.Unit.Repository;
 
-import anz.backend.Model.Account;
 import anz.backend.Model.Transaction;
+import anz.backend.Repository.TransactionRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 
