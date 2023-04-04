@@ -1,5 +1,5 @@
 # ANZ Project
-This project is a simple REST API for a bank accounts, and transactions. You can find sample API requests in the
+This project is a simple REST API for a bank accounts, and transactions. You can find and download sample API requests in the
 [Postman collection](postman/ANZ&#32;Project&#32;API&#32;requests.postman_collection.json).
 
 
